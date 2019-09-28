@@ -1,5 +1,9 @@
 package telas;
 
+import controles.ControleCadastro;
+import entidades.Produto;
+import javax.swing.JOptionPane;
+
 public class TelaCadastro extends javax.swing.JFrame {
     private TelaPrincipal telaAnterior;
     
@@ -80,6 +84,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtAreaEspecificacoes);
 
         boxHabilitarDesabilitar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desabilitado", "Habilitado" }));
+        boxHabilitarDesabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxHabilitarDesabilitarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,8 +102,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                             .addComponent(nomeDoProduto)
                             .addComponent(txtNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtPrecoDeVenda)
                                     .addComponent(precoDeCusto)
@@ -137,8 +146,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(habilitarVendas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boxHabilitarDesabilitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCancelar)
                     .addComponent(botaoSalvar))
@@ -161,6 +170,48 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         // TODO add your handling code here:
         System.out.println("Salvo");
+        String nome = nomeDoProduto.getText();
+        String especificacoes = txtAreaEspecificacoes.getText();
+        
+        String precoVenda = txtPrecoDeVenda.getText();
+        String precoCusto = txtPrecoDeCusto.getText();
+        
+        int itemSelecionado = boxHabilitarDesabilitar.getSelectedIndex();
+        // Se for = 0 não está habilitado, 1 está.
+        
+            float precoV = 0.0f;
+            float precoC = 0.0f;
+        
+        try {
+            precoV = Float.parseFloat(precoVenda);
+            precoC = Float.parseFloat(precoCusto);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                    "Valor do Preço Inválido");
+            return;
+        }
+        
+        // Criar um objeto produto
+        Produto produto = new Produto (null, 
+                nome,
+                especificacoes,
+                precoV,
+                precoC,
+                itemSelecionado == 0 ? false : true);
+        
+       // Chamar o controle para poder cadastar
+       
+       ControleCadastro controle = new ControleCadastro();
+       if (controle.cadastrarProduto(produto)){
+           JOptionPane.showMessageDialog(this, "Cadastrado com sucesso");
+            this.dispose();
+            telaAnterior.setEnabled(true);
+       } else {
+           JOptionPane.showMessageDialog(this, "Cadastrado não realizado"
+                   + "\n\nFaltando Dados");
+       }
+      
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
@@ -169,6 +220,10 @@ public class TelaCadastro extends javax.swing.JFrame {
         this.dispose();
         telaAnterior.setEnabled(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void boxHabilitarDesabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxHabilitarDesabilitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxHabilitarDesabilitarActionPerformed
 
     /**
      * @param args the command line arguments

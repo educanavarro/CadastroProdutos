@@ -67,6 +67,15 @@ public class Produto {
     public void setHabilitadoVendas(boolean habilitadoVendas) {
         this.habilitadoVendas = habilitadoVendas;
     }
-   
+    
+   @Override
+    public String toString(){
+        String valores = "codigo=" +codigo+
+                         ", nome=" +nome+
+                         ", preco custo=" +precoCusto+
+                         ", preco venda=" +precoVendas+
+                         ", habilitado vendas=" +habilitadoVendas;
+        return valores;           
+    }
    
 }

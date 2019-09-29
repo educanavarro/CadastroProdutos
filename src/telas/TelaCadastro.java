@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 
 public class TelaCadastro extends javax.swing.JFrame {
     private TelaPrincipal telaAnterior;
+    private TelaRelatorio telaRelatorio;
+    private Produto produto;
     
     private TelaCadastro() {
         initComponents();
@@ -15,6 +17,12 @@ public class TelaCadastro extends javax.swing.JFrame {
         // Chamar construtor padrão
         this();
         this.telaAnterior = telaAnterior;
+    }
+
+    public TelaCadastro(TelaRelatorio telaRelatorio, Produto produto) {
+        this();
+        this.telaRelatorio = telaRelatorio;
+        this.produto = produto;
     }
 
     @SuppressWarnings("unchecked")
@@ -191,26 +199,54 @@ public class TelaCadastro extends javax.swing.JFrame {
                     "Valor do Preço Inválido");
             return;
         }
+        Produto produto = this.produto;
+        
+        if (produto == null){
         
         // Criar um objeto produto
-        Produto produto = new Produto (null, 
+        produto = new Produto(null, 
                 nome,
                 especificacoes,
                 precoV,
                 precoC,
                 itemSelecionado == 0 ? false : true);
         
+        } else {
+            // Atualiza dados do produto
+            produto.setNome(nome);
+            produto.setEspecificacoes(especificacoes);
+            produto.setPrecoCusto(precoC);
+            produto.setPrecoVendas(precoV);
+            produto.setHabilitadoVendas(itemSelecionado == 0? false : true);
+        }
+        
        // Chamar o controle para poder cadastar
        
        ControleCadastro controle = new ControleCadastro();
-       if (controle.cadastrarProduto(produto)){
+       if (this.produto == null){
+           
+           if(controle.cadastrarProduto(produto)){
            JOptionPane.showMessageDialog(this, "Cadastrado com sucesso");
             this.dispose();
-            telaAnterior.setEnabled(true);
+            this.telaAnterior.toFront();
        } else {
            JOptionPane.showMessageDialog(this, "Cadastrado não realizado"
                    + "\n\nFaltando Dados");
        }
+       } else {
+                   if (controle.atualizarProduto(produto)){
+                   JOptionPane.showMessageDialog(this, "Atualizado com sucesso");
+                   if (this.telaRelatorio != null){
+                   System.out.println("Tentando repintar tela");
+                   this.telaRelatorio.atualizarModelo();
+                   }
+                   this.dispose();
+                   this.telaRelatorio.toFront();
+                   } else{
+                       JOptionPane.showMessageDialog(this, "Atualização não realizada!"
+                               + "\n\nFaltando dados");
+                   }
+                   }
       
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
@@ -254,6 +290,8 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;

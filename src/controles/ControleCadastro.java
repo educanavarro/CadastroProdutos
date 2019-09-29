@@ -2,15 +2,35 @@ package controles;
 import entidades.Produto;
 
 public class ControleCadastro {
-    
-    // singleton
+   
     
     public boolean cadastrarProduto (Produto produto){
         boolean resultado = false;
         if (produto!=null && produto.getNome().length() > 0
          && produto.getEspecificacoes().length() > 0 && produto.getPrecoCusto()!= 0.00f
          && produto.getPrecoVendas() !=0.00f){
-            // pronto para cadastrar no sistema
+            
+            // Seta codigo valido
+            produto.setCodigo(GerenteRepositorio.getInstance().getContadorProdutos());
+            
+            // insere no modelo de dados
+            GerenteRepositorio.getInstance().inserirProduto(produto);
+            
+            System.out.println(produto.toString());
+            
+            resultado = true;
+        }
+        return resultado;
+    }
+    
+    public boolean atualizarProduto (Produto produto){
+        boolean resultado = false;
+        if (produto != null && produto.getNome().length() > 0
+                && produto.getEspecificacoes().length() > 0 && produto.getPrecoCusto() != 0.0f
+                && produto.getPrecoVendas() != 0.0f){
+            
+            GerenteRepositorio.getInstance().modificarProduto(produto);
+            System.out.println("Atualizado -> " + produto.toString());
             resultado = true;
         }
         return resultado;

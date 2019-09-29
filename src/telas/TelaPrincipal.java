@@ -12,6 +12,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoSair = new javax.swing.JButton();
         botaoCadastro = new javax.swing.JButton();
+        relatorios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Produtos");
@@ -32,6 +33,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        relatorios.setText("Relatórios");
+        relatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relatoriosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -39,7 +47,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(botaoCadastro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(relatorios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addComponent(botaoSair)
                 .addGap(39, 39, 39))
         );
@@ -49,8 +59,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSair)
-                    .addComponent(botaoCadastro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botaoCadastro)
+                    .addComponent(relatorios))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         pack();
@@ -68,6 +79,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // Botão cadastrar precionado:
         new TelaCadastro(this).setVisible(true);
     }//GEN-LAST:event_botaoCadastroActionPerformed
+
+    private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
+        // Abrir a tela de relatórios:
+        new TelaRelatorio().setVisible(true);
+    }//GEN-LAST:event_relatoriosActionPerformed
 
 
     public static void main(String args[]) {
@@ -101,5 +117,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastro;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JButton relatorios;
     // End of variables declaration//GEN-END:variables
 }

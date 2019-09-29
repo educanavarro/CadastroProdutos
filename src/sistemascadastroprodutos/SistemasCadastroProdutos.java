@@ -1,5 +1,4 @@
 package sistemascadastroprodutos;
-
 import telas.TelaPrincipal;
 
 public class SistemasCadastroProdutos {

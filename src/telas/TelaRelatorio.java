@@ -91,14 +91,26 @@ public class TelaRelatorio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelaRelatorio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tabelaRelatorioFocusGained(evt);
+            }
+        });
+        tabelaRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabelaRelatorioMousePressed(evt);
+            }
+        });
+        tabelaRelatorio.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tabelaRelatorioInputMethodTextChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaRelatorio);
 
         botaoEditar.setText("Editar");
-        botaoEditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                botaoEditarMousePressed(evt);
-            }
-        });
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEditarActionPerformed(evt);
@@ -168,32 +180,33 @@ public class TelaRelatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
+        // Fechar e voltar para tela principal:
         this.telaPrincipal.setEnabled(true);
-        // NOVO CODIGO
         this.telaPrincipal.toFront();
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
+        // Voltar para tela principal:
         System.out.println("form window activated");
     }//GEN-LAST:event_formWindowActivated
 
-    private void botaoEditarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEditarMousePressed
+    private void tabelaRelatorioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaRelatorioMousePressed
         // TODO add your handling code here:
-        System.out.println("jTable1MousePressed ");
+        System.out.println("Mouse Pressed");
         botaoEditar.setEnabled(true);
-    }//GEN-LAST:event_botaoEditarMousePressed
+    }//GEN-LAST:event_tabelaRelatorioMousePressed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void tabelaRelatorioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabelaRelatorioFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaRelatorioFocusGained
+
+    private void tabelaRelatorioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tabelaRelatorioInputMethodTextChanged
+        // TODO add your handling code here:
+        System.out.println("tabelaRelatorio input changed now");
+    }//GEN-LAST:event_tabelaRelatorioInputMethodTextChanged
+
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -210,9 +223,6 @@ public class TelaRelatorio extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaRelatorio().setVisible(true);

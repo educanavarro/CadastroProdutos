@@ -46,6 +46,9 @@ public class TelaCadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro do Produto");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
@@ -261,6 +264,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boxHabilitarDesabilitarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        if (this.produto != null) {
+            carregarProdutoNosCampos();
+        }
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -308,4 +318,17 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecoDeCusto;
     private javax.swing.JTextField txtPrecoDeVenda;
     // End of variables declaration//GEN-END:variables
+private void carregarProdutoNosCampos() {
+        
+        txtNomeDoProduto.setText(this.produto.getNome());
+        txtPrecoDeVenda.setText(this.produto.getPrecoVendas()+"");
+        txtPrecoDeCusto.setText(this.produto.getPrecoCusto()+"");
+        txtAreaEspecificacoes.setText(this.produto.getEspecificacoes());
+        boxHabilitarDesabilitar.setSelectedIndex(this.produto.isHabilitadoVendas() ? 1 : 0);
+        
+        
+    }
+
 }
+
+    

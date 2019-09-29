@@ -1,9 +1,25 @@
 package telas;
 
+import controles.GerenteRepositorio;
+import entidades.Produto;
+import java.util.ArrayList;
+
 public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
         initComponents();
+        // Centralizar a janela atual
+        this.setLocationRelativeTo(null);
+    }
+    
+        public void atualizaTable() {
+        
+        
+        ArrayList<Produto> lista = GerenteRepositorio.getInstance().obterListaProdutos();
+        for (int i = 0; i < lista.size(); i++) {
+            Produto p = lista.get(i);
+            p.toString();
+        }
     }
  
     @SuppressWarnings("unchecked")
@@ -82,6 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
         // Abrir a tela de relatórios:
+        this.setEnabled(false);
         new TelaRelatorio().setVisible(true);
     }//GEN-LAST:event_relatoriosActionPerformed
 

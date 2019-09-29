@@ -15,7 +15,7 @@ public class GerenteRepositorio {
    public static GerenteRepositorio getInstance(){
        if (instancia == null){
            instancia = new GerenteRepositorio();
-       }
+   }
        return instancia;
    }
    
@@ -44,7 +44,7 @@ public class GerenteRepositorio {
        private void loadProdutosParaTestes() {
         
         for (int i = 0; i < 20; i++) {
-            Produto p = new Produto(
+            Produto produto = new Produto(
                     new Long(contadorProdutos), // codigo 
                     "PC "+(i+1),  // nome do produto
                     "...", // especificacoes
@@ -54,7 +54,7 @@ public class GerenteRepositorio {
             
             
             contadorProdutos++;
-            listaProdutos.add(p);
+            listaProdutos.add(produto);
         }
         
         

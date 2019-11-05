@@ -8,11 +8,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
         initComponents();
-        // Centralizar a janela atual
+        
+        // configura para centralizar a janela atual
         this.setLocationRelativeTo(null);
+        
     }
     
-        public void atualizaTable() {
+    
+    
+    public void atualizaTable() {
         
         
         ArrayList<Produto> lista = GerenteRepositorio.getInstance().obterListaProdutos();
@@ -20,120 +24,113 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Produto p = lista.get(i);
             p.toString();
         }
+        
+        
     }
- 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botaoSair = new javax.swing.JButton();
-        botaoCadastro = new javax.swing.JButton();
-        relatorios = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Produtos");
-        setPreferredSize(new java.awt.Dimension(600, 400));
-        setResizable(false);
 
-        botaoSair.setText("Sair");
-        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSairActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        botaoCadastro.setText("Cadastrar");
-        botaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Cadastrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastroActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        relatorios.setText("Relatórios");
-        relatorios.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Relatórios");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                relatoriosActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(botaoCadastro)
-                .addGap(18, 18, 18)
-                .addComponent(relatorios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
-                .addComponent(botaoSair)
-                .addGap(39, 39, 39))
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jButton2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton3)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 132, Short.MAX_VALUE)
+                .add(jButton1)
+                .add(37, 37, 37))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoSair)
-                    .addComponent(botaoCadastro)
-                    .addComponent(relatorios))
-                .addContainerGap(350, Short.MAX_VALUE))
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(24, 24, 24)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jButton1)
+                    .add(jButton2)
+                    .add(jButton3))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        // Botão sair precionado:
-        System.out.println("Saindo");
-        System.exit(0);
-    }//GEN-LAST:event_botaoSairActionPerformed
-
-    private void botaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroActionPerformed
-        // Desabilitar tela principal:
-        this.setEnabled(false);
-        // Botão cadastrar precionado:
-        new TelaCadastro(this).setVisible(true);
-    }//GEN-LAST:event_botaoCadastroActionPerformed
-
-    private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
-        // Abrir a tela de relatórios:
-        this.setEnabled(false);
-        new TelaRelatorio().setVisible(true);
-    }//GEN-LAST:event_relatoriosActionPerformed
-
-
-    public static void main(String args[]) {
+    
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        // usuario clicou no botao Sair
+        System.exit(0);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        /* Create and display the form */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+       
+        // desabilitando tela atual para nao ser clicável
+        this.setEnabled(false);
+        
+        // botao Cadastrar pressionado
+        new TelaCadastro(this).setVisible(true);
+        
+        
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        this.setEnabled(false);
+        
+        new TelaRelatorio(this).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    
+    public static void main(String args[]) {
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new TelaPrincipal().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCadastro;
-    private javax.swing.JButton botaoSair;
-    private javax.swing.JButton relatorios;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@ import entidades.Produto;
 import java.util.ArrayList;
 
 public class GerenteRepositorio {
-    // metodos serão acessado usando padrao SINGLETON
+    // Metodos serão acessado usando padrao SINGLETON
     private static GerenteRepositorio instancia;
     // Contador de Produtos
     private long contadorProdutos = 1;
@@ -21,7 +21,7 @@ public class GerenteRepositorio {
    
        private GerenteRepositorio(){
         listaProdutos = new ArrayList<Produto>();
-        //loadProdutosParaTestes();
+        //carregarProdutosParaTestes();
     }
     /**
      * Usado para obter o contador atual
@@ -41,12 +41,12 @@ public class GerenteRepositorio {
        return listaProdutos;
    }
    
-       private void loadProdutosParaTestes() {
+       /*private void carregarProdutosParaTestes() {
         
         for (int i = 0; i < 20; i++) {
             Produto produto = new Produto(
                     new Long(contadorProdutos), // codigo 
-                    "PC "+(i+1),  // nome do produto
+                    "Jogo "+(i+1),  // nome do produto
                     "...", // especificacoes
                     500.0f, // preco venda
                     300.0f, // preco custo
@@ -58,11 +58,11 @@ public class GerenteRepositorio {
         }
         
         
-    }
+    }*/
   /**
      * Altera o produto.
      * 
-     * @param p o produto a ser alterado 
+     * @param o produto a ser alterado 
      */ 
    public void modificarProduto (Produto produto){
        if (listaProdutos.contains(produto)){

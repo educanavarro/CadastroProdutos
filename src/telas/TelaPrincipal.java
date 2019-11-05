@@ -9,7 +9,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         
-        // configura para centralizar a janela atual
+        // Configura para centralizar a janela atual
         this.setLocationRelativeTo(null);
         
     }
@@ -32,31 +32,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
+        btCadastrar = new javax.swing.JButton();
+        btRelatorios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Produtos");
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btSairActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Relatórios");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btRelatorios.setText("Relatórios");
+        btRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btRelatoriosActionPerformed(evt);
             }
         });
 
@@ -66,11 +66,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jButton2)
+                .add(btCadastrar)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton3)
+                .add(btRelatorios)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 132, Short.MAX_VALUE)
-                .add(jButton1)
+                .add(btSair)
                 .add(37, 37, 37))
         );
         layout.setVerticalGroup(
@@ -78,9 +78,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .add(24, 24, 24)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jButton1)
-                    .add(jButton2)
-                    .add(jButton3))
+                    .add(btSair)
+                    .add(btCadastrar)
+                    .add(btRelatorios))
                 .addContainerGap(387, Short.MAX_VALUE))
         );
 
@@ -90,33 +90,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         
-        // usuario clicou no botao Sair
+        // Usuario clicou no botao Sair
         System.exit(0);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btSairActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         
        
-        // desabilitando tela atual para nao ser clicável
+        // Desabilitando tela atual para não ser clicável
         this.setEnabled(false);
         
-        // botao Cadastrar pressionado
+        // Botão Cadastrar pressionado
         new TelaCadastro(this).setVisible(true);
         
         
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriosActionPerformed
         // TODO add your handling code here:
         
         this.setEnabled(false);
         
         new TelaRelatorio(this).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btRelatoriosActionPerformed
 
     
     public static void main(String args[]) {
@@ -129,8 +129,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btRelatorios;
+    private javax.swing.JButton btSair;
     // End of variables declaration//GEN-END:variables
 }

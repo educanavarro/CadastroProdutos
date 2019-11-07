@@ -210,7 +210,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             produto.setNome(nome);
             produto.setEspecificacoes(especificacoes);
             produto.setPrecoCusto(precoC);
-            produto.setPrecoVendas(precoV);
+            produto.setPrecoVenda(precoV);
             produto.setHabilitadoVendas(itemSelecionado == 0 ? false : true);
             
         }
@@ -245,7 +245,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                 this.telaRelatorios.toFront();
                 
             } else {
-                JOptionPane.showMessageDialog(this, "Atualização Não realizada. "
+                JOptionPane.showMessageDialog(this, "Atualização não realizada. "
                         + "\n\nFaltando dados");
             } 
         }
@@ -331,7 +331,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void carregarProdutoNosCampos() {
         
         txtNomeProduto.setText(this.produto.getNome());
-        txtPrecoVenda.setText(this.produto.getPrecoVendas()+"");
+        txtPrecoVenda.setText(this.produto.getPrecoVenda()+"");
         txtPrecoCusto.setText(this.produto.getPrecoCusto()+"");
         txtEspecificacoes.setText(this.produto.getEspecificacoes());
         cbHabilitar.setSelectedIndex(this.produto.isHabilitadoVendas() ? 1 : 0);

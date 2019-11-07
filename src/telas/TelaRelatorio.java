@@ -46,7 +46,7 @@ public class TelaRelatorio extends javax.swing.JFrame  {
             // Linhas de dados da tabela
             modelo.addRow(new String[]{produto.getCodigo().toString(),
                         produto.getNome(),
-                        produto.getPrecoVendas()+ "",
+                        produto.getPrecoVenda()+ "",
                         produto.getPrecoCusto() + "",
                         produto.isHabilitadoVendas() + ""});
         }

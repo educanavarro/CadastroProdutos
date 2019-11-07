@@ -8,12 +8,12 @@ public class ControleCadastro {
         boolean resultado = false;
         if (produto!=null && produto.getNome().length() > 0
          && produto.getEspecificacoes().length() > 0 && produto.getPrecoCusto()!= 0.00f
-         && produto.getPrecoVendas() !=0.00f){
+         && produto.getPrecoVenda() !=0.00f){
             
             // Seta codigo valido
             produto.setCodigo(GerenteRepositorio.getInstance().getContadorProdutos());
             
-            // insere no modelo de dados
+            // Insere no modelo de dados
             GerenteRepositorio.getInstance().inserirProduto(produto);
             
             System.out.println(produto.toString());
@@ -27,7 +27,7 @@ public class ControleCadastro {
         boolean resultado = false;
         if (produto != null && produto.getNome().length() > 0
                 && produto.getEspecificacoes().length() > 0 && produto.getPrecoCusto() != 0.0f
-                && produto.getPrecoVendas() != 0.0f){
+                && produto.getPrecoVenda() != 0.0f){
             
             GerenteRepositorio.getInstance().modificarProduto(produto);
             System.out.println("Atualizado -> " + produto.toString());

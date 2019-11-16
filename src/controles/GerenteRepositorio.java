@@ -40,23 +40,6 @@ public class GerenteRepositorio {
        listaProdutos.add(produto);
        System.out.println(produto);
        contadorProdutos++; // Atualizar o contador de produtos
-       try {
-            FileWriter fw = new FileWriter("produtos.txt", true);
-            PrintWriter pw = new PrintWriter (fw);
-            pw.println("Codigo: " + produto.getCodigo());
-            pw.println("Nome: " + produto.getNome());
-            pw.println("Especificações: " + produto.getEspecificacoes());
-            pw.println("Preço de Venda: " + produto.getPrecoVenda());
-            pw.println("Preço de Custo: " + produto.getPrecoCusto());
-            pw.println("Habilitado: " + produto.isHabilitadoVendas());
-            pw.flush();
-            pw.close();
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Produto.class.getName()).log(Level.SEVERE, null, ex);
-        
-    }
-       
    }
    
    public ArrayList<Produto> obterListaProdutos(){

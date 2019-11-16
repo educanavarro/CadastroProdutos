@@ -3,6 +3,9 @@ package telas;
 import controles.GerenteRepositorio;
 import entidades.Produto;
 import java.util.ArrayList;
+import java.awt.Image;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -32,19 +35,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btSair = new javax.swing.JButton();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/background.jpg"));
+        Image image = icon.getImage();
+        background = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(), this);
+            }
+
+        };
         btCadastrar = new javax.swing.JButton();
         btRelatorios = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Produtos");
-
-        btSair.setText("Sair");
-        btSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairActionPerformed(evt);
-            }
-        });
 
         btCadastrar.setText("Cadastrar");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -60,28 +65,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
+            }
+        });
+
+        background.setLayer(btCadastrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        background.setLayer(btRelatorios, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        background.setLayer(btSair, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        org.jdesktop.layout.GroupLayout backgroundLayout = new org.jdesktop.layout.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(backgroundLayout.createSequentialGroup()
+                .add(32, 32, 32)
+                .add(btCadastrar)
+                .add(67, 67, 67)
+                .add(btRelatorios)
+                .add(32, 32, 32)
+                .add(btSair)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(backgroundLayout.createSequentialGroup()
+                .add(44, 44, 44)
+                .add(backgroundLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(btCadastrar)
+                    .add(btRelatorios)
+                    .add(btSair))
+                .addContainerGap(367, Short.MAX_VALUE))
+        );
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .add(btCadastrar)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(btRelatorios)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 132, Short.MAX_VALUE)
-                .add(btSair)
-                .add(37, 37, 37))
+            .add(background)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(24, 24, 24)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(btSair)
-                    .add(btCadastrar)
-                    .add(btRelatorios))
-                .addContainerGap(387, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, background)
         );
 
         pack();
@@ -129,6 +156,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane background;
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btRelatorios;
     private javax.swing.JButton btSair;

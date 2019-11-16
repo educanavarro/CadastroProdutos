@@ -1,0 +1,24 @@
+Codigo: 1
+Nome: gerra
+Especificações: ge
+Preço de Venda: 1050.0
+Preço de Custo: 50.0
+Habilitado: false
+Codigo: 2
+Nome: hef
+Especificações: sad
+Preço de Venda: 10.0
+Preço de Custo: 20.0
+Habilitado: false
+Codigo: 3
+Nome: Killzomne
+Especificações: hsad
+Preço de Venda: 50.0
+Preço de Custo: 10.0
+Habilitado: false
+Codigo: 1
+Nome: Teste
+Especificações: teste
+Preço de Venda: 120.0
+Preço de Custo: 50.0
+Habilitado: false

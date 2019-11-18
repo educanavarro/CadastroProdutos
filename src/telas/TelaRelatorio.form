@@ -39,6 +39,8 @@
                           <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btEditar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btDeletar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btVoltar" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -60,6 +62,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btEditar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btDeletar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -120,6 +123,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btDeletar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deletar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDeletarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

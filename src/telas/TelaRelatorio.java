@@ -65,6 +65,7 @@ public class TelaRelatorio extends javax.swing.JFrame  {
         tbRelatorio = new javax.swing.JTable();
         txRelatorio = new javax.swing.JLabel();
         btEditar = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -136,6 +137,13 @@ public class TelaRelatorio extends javax.swing.JFrame  {
             }
         });
 
+        btDeletar.setText("Deletar");
+        btDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeletarActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,6 +159,8 @@ public class TelaRelatorio extends javax.swing.JFrame  {
                             .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .add(layout.createSequentialGroup()
                                 .add(btEditar)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(btDeletar)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(btVoltar)))
                         .addContainerGap())))
@@ -165,7 +175,8 @@ public class TelaRelatorio extends javax.swing.JFrame  {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(btVoltar)
-                    .add(btEditar))
+                    .add(btEditar)
+                    .add(btDeletar))
                 .addContainerGap())
         );
 
@@ -229,6 +240,22 @@ public class TelaRelatorio extends javax.swing.JFrame  {
     private void tbRelatorioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbRelatorioInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_tbRelatorioInputMethodTextChanged
+
+    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
+        // Deletar dos produtos já registrados:
+        try {
+            int linha = tbRelatorio.getSelectedRow();
+
+            Produto produto = GerenteRepositorio.getInstance().obterListaProdutos().get(linha);
+            GerenteRepositorio.getInstance().removerProduto(produto);
+            
+            carregarTabela();
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(this, "Selecione um produto!");
+            btDeletar.setEnabled(false);
+        }   
+    }//GEN-LAST:event_btDeletarActionPerformed
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,6 +272,7 @@ public class TelaRelatorio extends javax.swing.JFrame  {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JScrollPane jScrollPane1;

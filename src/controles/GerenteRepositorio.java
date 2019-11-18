@@ -26,7 +26,7 @@ public class GerenteRepositorio {
    
        private GerenteRepositorio(){
         listaProdutos = new ArrayList<Produto>();
-        //carregarProdutosParaTestes();
+        carregarProdutosParaTestes();
     }
     /**
      * Usado para obter o contador atual
@@ -42,11 +42,16 @@ public class GerenteRepositorio {
        contadorProdutos++; // Atualizar o contador de produtos
    }
    
+      public void removerProduto(Produto produto){
+       listaProdutos.remove(produto);
+       System.out.println(produto);
+   }
+   
    public ArrayList<Produto> obterListaProdutos(){
        return listaProdutos;       
    }
    
-       /*private void carregarProdutosParaTestes() {
+       private void carregarProdutosParaTestes() {
         
         for (int i = 0; i < 20; i++) {
             Produto produto = new Produto(
@@ -63,7 +68,7 @@ public class GerenteRepositorio {
         }
         
         
-    }*/
+    }
   /**
      * Altera o produto.
      * 

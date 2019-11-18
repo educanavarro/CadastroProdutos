@@ -19,13 +19,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     
     
-    public void atualizaTable() {
+    public void atualizaTabela() {
         
         
         ArrayList<Produto> lista = GerenteRepositorio.getInstance().obterListaProdutos();
         for (int i = 0; i < lista.size(); i++) {
-            Produto p = lista.get(i);
-            p.toString();
+            Produto produto = lista.get(i);
+            produto.toString();
         }
         
         
